@@ -80,7 +80,7 @@ to the `output` directory, the second argument supplied to the script.
 After the job completes the output directory will contain the results of the job, which will show the last names and
 first names in sorted order:
 
-    $ hdfs -cat output/part*
+    $ hadoop fs -cat output/part*
     Smith	Anne
     Smith	John
     Smith	Ken
