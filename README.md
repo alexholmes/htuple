@@ -10,7 +10,7 @@ method to tune which tuple elements should be used for partitioning, sorting and
 
 ## License
 
-Apache version 2.0 (for more details look at [LICENSE](https://github.com/alexholmes/htuple/blob/master/LICENSE).
+Apache version 2.0. For more details look at [LICENSE](LICENSE).
 
 ## Example
 
