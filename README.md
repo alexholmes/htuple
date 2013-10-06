@@ -10,7 +10,7 @@ method to tune which tuple elements should be used for partitioning, sorting and
 
 ## License
 
-Apache version 2.0 (for more details look at [LICENSE](https://github.com/alexholmes/htuple/blob/master/LICENSE)).
+Apache version 2.0 (for more details look at [LICENSE](https://github.com/alexholmes/htuple/blob/master/LICENSE).
 
 ## Example
 
@@ -101,5 +101,9 @@ After this is complete you'll have both core and example JAR's:
 
 ## Documentation
 
-After building the project you'll see JavaDoc JAR's under the `core/target` directory.
+The JavaDoc's for the project can be extracted from the JavaDoc JAR's that are generated under the `core/target` directory after building the project.
+
+## Additional Resources
+
+* Learn about the datatypes supported: [DATATYPES.md](DATATYPES.md)
 
