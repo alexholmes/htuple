@@ -107,5 +107,20 @@ public abstract class AbstractTupleComparatorTest {
 
         assertTrue(comparator.compare(t1, t2) > 0);
     }
+
+    @Test
+    public void testOrdering() {
+
+        Tuple t1 = new Tuple();
+        Tuple t2 = new Tuple();
+
+        t1.add("alex").add(1).add(3);
+        t2.add("alex").add(2).add(2);
+
+        setComparatorIndices(conf, 2, 1);
+        comparator.setConf(conf);
+
+        assertTrue(comparator.compare(t1, t2) > 0);
+    }
 }
 

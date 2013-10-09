@@ -53,35 +53,28 @@ public abstract class TupleComparator extends WritableComparator implements Conf
     public int compare(WritableComparable o1, WritableComparable o2) {
         Tuple lhs = (Tuple) o1;
         Tuple rhs = (Tuple) o2;
-        int indexOffset = 0;
-        for (int i = 0; i < lhs.size() && i < rhs.size(); i++) {
-            if (i == indices[indexOffset]) {
-                Object lhsObject = lhs.getObject(i);
-                Object rhsObject = rhs.getObject(i);
 
-                if (lhsObject == null && rhsObject == null) {
-                    continue;
-                }
+        for (int idx: indices) {
+            Object lhsObject = lhs.getObject(idx);
+            Object rhsObject = rhs.getObject(idx);
 
-                int cmp = lhsObject == null ? -1 : rhsObject == null ? 1 : 0;
+            if (lhsObject == null && rhsObject == null) {
+                continue;
+            }
 
-                if (cmp != 0) {
-                    return cmp;
-                }
+            int cmp = lhsObject == null ? -1 : rhsObject == null ? 1 : 0;
 
-                cmp = ((Comparable) lhsObject).compareTo(rhsObject);
+            if (cmp != 0) {
+                return cmp;
+            }
 
-                if (cmp != 0) {
-                    return cmp;
-                }
+            cmp = ((Comparable) lhsObject).compareTo(rhsObject);
 
-                indexOffset++;
-
-                if (indexOffset == indices.length) {
-                    return 0;
-                }
+            if (cmp != 0) {
+                return cmp;
             }
         }
-        return lhs.size() - rhs.size();
+
+        return 0;
     }
 }

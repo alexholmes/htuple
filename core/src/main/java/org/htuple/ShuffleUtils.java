@@ -146,7 +146,6 @@ public class ShuffleUtils {
         for (int i = 0; i < parts.length; i++) {
             indices[i] = Integer.valueOf(parts[i]);
         }
-        Arrays.sort(indices);
         return indices;
     }
 
