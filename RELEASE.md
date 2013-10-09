@@ -21,6 +21,10 @@ See https://github.com/blog/831-issues-2-0-the-next-generation for more details.
     $ cd htuple-dist/target/htuple-${VERSION}
     $ tar -czvf htuple-${VERSION}.tgz htuple-${VERSION}
 
+Verify the tarball contents
+
+    $ tar -tzvf htuple-${VERSION}.tgz
+
 ## Create the release on GitHub
 Follow the instructions at [https://github.com/blog/1547-release-your-software] to complete the release.
 Make sure you:
