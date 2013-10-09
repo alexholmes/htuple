@@ -6,11 +6,19 @@ tedious, especially when doing this across multiple jobs. The goal of this libra
 which can contain multiple elements, and provide along with it a `ShuffleUtils` class to give you a easy-to-use
 method to tune which tuple elements should be used for partitioning, sorting and grouping.
 
-<a name="License"></a>
+---
 
-## License
+Table of Contents
 
-Apache version 2.0. For more details look at [LICENSE](LICENSE).
+* <a href="#Example">Example</a>
+* <a href="#Downloading">Downloading</a>
+* <a href="#Documentation">Documentation</a>
+* <a href="#Building">Documentation</a>
+* <a href="#Additional-Resources">Additional Resources</a>
+* <a href="#License">License</a>
+
+---
+
 
 <a name="Example"></a>
 
@@ -107,9 +115,14 @@ The JavaDoc's for the project are included in the release tarball which can be d
 
 See the page on [building](BUILDING.md).
 
-<a name="AdditionalResources"></a>
+<a name="Additional-Resources"></a>
 
 ## Additional Resources
 
 * Learn about the datatypes supported: [DATATYPES.md](DATATYPES.md)
 
+<a name="License"></a>
+
+## License
+
+Apache version 2.0. For more details look at [LICENSE](LICENSE).
