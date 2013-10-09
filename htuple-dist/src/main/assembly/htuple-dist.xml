@@ -24,8 +24,6 @@
 
     <!-- see https://java.net/projects/quicktable/sources/quicktable/content/src/assembly.xml -->
 
-  <!--includeBaseDirectory paramter replacement does not seem to work -->
-  <!--includeBaseDirectory>${package.includeBaseDirectory}</includeBaseDirectory-->
   <moduleSets>
     <moduleSet>
       <useAllReactorProjects>true</useAllReactorProjects>
@@ -44,6 +42,11 @@
                     <includes>
                         <include>*.jar</include>
                     </includes>
+                </fileSet>
+                <fileSet>
+                    <outputDirectory>/bin</outputDirectory>
+                    <!--<useDefaultExcludes>true</useDefaultExcludes>-->
+                    <directory>src/main/shell</directory>
                 </fileSet>
             </fileSets>
         </sources>

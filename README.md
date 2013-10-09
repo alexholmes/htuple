@@ -1,8 +1,6 @@
 htuple
 ======
 
-## Description
-
 In MapReduce using compound map output keys and customizing which fields are partitioned, sorted and grouped can be
 tedious, especially when doing this across multiple jobs. The goal of this library is to provide a `Tuple` class,
 which can contain multiple elements, and provide along with it a `ShuffleUtils` class to give you a easy-to-use
@@ -68,10 +66,10 @@ in the form `last_name <TAB> first_name`.
     }
 
 To read the entire source of this example please take a look at [SecondarySort.java](https://github.com/alexholmes/htuple/blob/master/examples/src/main/java/org/htuple/examples/SecondarySort.java).
-You can also execute this example by following these steps, which assume you've already built the project
-(see "Building" if you haven't yet done a build):
+You can also execute this example by following these steps, which assume you've already downloaded and exploded the project
+tarball (see section <a href="#Downloading">Downloading</a> if you haven't yet performed this step):
 
-    $ ./run-example.sh input output
+    $ htuple-<version>/bin/run-example.sh input output
 
 This script will run the `SecondarySort` class, which writes some sample input in HDFS in the `input` directory (the first
 argument supplied to the `run-example.sh` script), and runs a secondary sort MapReduce job, where the output is written
@@ -85,23 +83,18 @@ first names in sorted order:
     Smith	John
     Smith	Ken
 
-## Building
+## Downloading
 
-To build the core and example JAR's, first clone the repo:
-
-    $ git clone https://github.com/alexholmes/htuple
-
-Then simply go into the `htuple` directory and run Maven:
-
-    $ mvn package
-
-After this is complete you'll have both core and example JAR's:
-
-    $ ls core/target/* examples/target/*
+Go to the [releases](releases) page and download the latest tarball. Within there you'll find JAR's containing
+the compiled code, the source code and JavaDocs.
 
 ## Documentation
 
-The JavaDoc's for the project can be extracted from the JavaDoc JAR's that are generated under the `core/target` directory after building the project.
+The JavaDoc's for the project are included in the release tarball which can be downloaded from the [releases](releases) page.
+
+## Building
+
+See the page on [building](BUILDING.md).
 
 ## Additional Resources
 
