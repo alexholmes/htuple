@@ -13,7 +13,7 @@ Table of Contents
 * <a href="#Example">Example</a>
 * <a href="#Downloading">Downloading</a>
 * <a href="#Documentation">Documentation</a>
-* <a href="#Building">Documentation</a>
+* <a href="#Building">Building</a>
 * <a href="#Additional-Resources">Additional Resources</a>
 * <a href="#License">License</a>
 
