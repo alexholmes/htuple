@@ -22,7 +22,7 @@
   <parent>
     <groupId>org.htuple</groupId>
     <artifactId>htuple</artifactId>
-    <version>0.1.0</version>
+    <version>0.1.1</version>
   </parent>
   <artifactId>htuple-examples</artifactId>
 
@@ -231,7 +231,7 @@
       <dependency>
           <groupId>org.htuple</groupId>
           <artifactId>htuple-core</artifactId>
-          <version>0.1.0</version>
+          <version>0.1.1</version>
       </dependency>
       <dependency>
           <groupId>org.slf4j</groupId>
