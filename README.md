@@ -91,14 +91,15 @@ first names in sorted order:
 
 ## Downloading
 
-Go to the [releases](releases) page and download the latest tarball. Within there you'll find JAR's containing
-the compiled code, the source code and JavaDocs.
+Go to the [releases](https://github.com/alexholmes/htuple/releases) page and download the latest tarball.
+Within there you'll find JAR's containing the compiled code, the source code and JavaDocs.
 
 <a name="Documentation"></a>
 
 ## Documentation
 
-The JavaDoc's for the project are included in the release tarball which can be downloaded from the [releases](releases) page.
+The JavaDoc's for the project are included in the release tarball which can be downloaded from the
+[releases](https://github.com/alexholmes/htuple/releases) page.
 
 <a name="Building"></a>
 
