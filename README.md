@@ -6,9 +6,13 @@ tedious, especially when doing this across multiple jobs. The goal of this libra
 which can contain multiple elements, and provide along with it a `ShuffleUtils` class to give you a easy-to-use
 method to tune which tuple elements should be used for partitioning, sorting and grouping.
 
+<a name="License"></a>
+
 ## License
 
 Apache version 2.0. For more details look at [LICENSE](LICENSE).
+
+<a name="Example"></a>
 
 ## Example
 
@@ -83,18 +87,26 @@ first names in sorted order:
     Smith	John
     Smith	Ken
 
+<a name="Downloading"></a>
+
 ## Downloading
 
 Go to the [releases](releases) page and download the latest tarball. Within there you'll find JAR's containing
 the compiled code, the source code and JavaDocs.
 
+<a name="Documentation"></a>
+
 ## Documentation
 
 The JavaDoc's for the project are included in the release tarball which can be downloaded from the [releases](releases) page.
 
+<a name="Building"></a>
+
 ## Building
 
 See the page on [building](BUILDING.md).
+
+<a name="AdditionalResources"></a>
 
 ## Additional Resources
 
