@@ -20,10 +20,8 @@ import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.io.RawComparator;
 import org.apache.hadoop.mapreduce.Partitioner;
 
-import java.util.Arrays;
-
 /**
- * Utilities to help with custom sorting, grouping and partitioning of {@link Tuple}'s (e.g. to support secondary sort).
+ * Utilities to help with custom sorting, grouping and partitioning of {@link Tuple}'s.
  * <p/>
  * The following example shows how you'd configure your job for secondary sort for tuples with two elements, assuming
  * that all the elements would be used for partitioning and grouping, but only the first element would be used for
@@ -63,52 +61,123 @@ public class ShuffleUtils {
         return new ConfigBuilder();
     }
 
+    /**
+     * A builder that allows you to tune how partitioning,
+     * sorting and grouping should work for a given MapReduce job using your {@link Tuple} instances.
+     */
     public static class ConfigBuilder {
         int[] partitionerIndices;
         int[] sortIndices;
         int[] groupIndices;
         boolean useNewApi;
 
+        /**
+         * Indicate that the old {@code org.apache.hadoop.mapred} API should be used when configuring
+         * the job.
+         *
+         * @return a handle to this object to enable builder operations
+         */
         public ConfigBuilder useOldApi() {
             this.useNewApi = false;
             return this;
         }
 
+        /**
+         * Indicate that the new {@code org.apache.hadoop.mapreduce} API should be used when configuring
+         * the job.
+         *
+         * @return a handle to this object to enable builder operations
+         */
         public ConfigBuilder useNewApi() {
             this.useNewApi = true;
             return this;
         }
 
+        /**
+         * Set the tuple indexes that will be used by the {@link Partitioner}.
+         *
+         * @return a handle to this object to enable builder operations
+         */
         public ConfigBuilder setPartitionerIndices(int... indices) {
             this.partitionerIndices = indices;
             return this;
         }
 
+        /**
+         * Set the tuple indexes that will be used by the {@link Partitioner}.
+         * The ordinal values of the supplied arguments are used to determine the indexes.
+         *
+         * @return a handle to this object to enable builder operations
+         */
         public ConfigBuilder setPartitionerIndices(Enum<?>... indices) {
             this.partitionerIndices = enumOrdinalsToArray(indices);
             return this;
         }
 
+        /**
+         * Set the tuple indexes that will be used by the {@link TupleComparator} for sorting.
+         * <p/>
+         * These indexes are used according to the order that they are supplied to this method. In other words,
+         * if you call {@code setSortIndices(2, 1);}, then the 3rd element will be used for sorting
+         * followed by the second element.
+         *
+         * @return a handle to this object to enable builder operations
+         */
         public ConfigBuilder setSortIndices(int... indices) {
             this.sortIndices = indices;
             return this;
         }
 
+        /**
+         * Set the tuple indexes that will be used by the {@link TupleComparator} for sorting.
+         * The ordinal values of the supplied arguments are used to determine the indexes.
+         * <p/>
+         * These indexes are used according to the order that they are supplied to this method. In other words,
+         * if you call {@code setSortIndices(2, 1);}, then the 3rd element will be used for sorting
+         * followed by the second element.
+         *
+         * @return a handle to this object to enable builder operations
+         */
         public ConfigBuilder setSortIndices(Enum<?>... indices) {
             this.sortIndices = enumOrdinalsToArray(indices);
             return this;
         }
 
+        /**
+         * Set the tuple indexes that will be used by the {@link TupleComparator} for grouping.
+         * <p/>
+         * These indexes are used according to the order that they are supplied to this method. In other words,
+         * if you call {@code setGroupIndices(2, 1);}, then the 3rd element will be used for grouping
+         * followed by the second element.
+         *
+         * @return a handle to this object to enable builder operations
+         */
         public ConfigBuilder setGroupIndices(int... indices) {
             this.groupIndices = indices;
             return this;
         }
 
+        /**
+         * Set the tuple indexes that will be used by the {@link TupleComparator} for grouping.
+         * The ordinal values of the supplied arguments are used to determine the indexes.
+         * <p/>
+         * These indexes are used according to the order that they are supplied to this method. In other words,
+         * if you call {@code setGroupIndices(2, 1);}, then the 3rd element will be used for grouping
+         * followed by the second element.
+         *
+         * @return a handle to this object to enable builder operations
+         */
         public ConfigBuilder setGroupIndices(Enum<?>... indices) {
             this.groupIndices = enumOrdinalsToArray(indices);
             return this;
         }
 
+        /**
+         * Configure the supplied configuration object with any partitioner, sorting and grouping
+         * configs that were setup prior to calling this method.
+         *
+         * @param conf the Hadoop configuration to be populated
+         */
         public void configure(Configuration conf) {
             if (useNewApi) {
                 configureIndexes(conf, partitionerIndices, PARTITIONER_INDEXES_CONFIG_NAME, "mapreduce.partitioner.class", TupleMapReducePartitioner.class, Partitioner.class);

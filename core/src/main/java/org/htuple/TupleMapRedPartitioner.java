@@ -16,7 +16,6 @@
 
 package org.htuple;
 
-import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.mapred.JobConf;
 import org.apache.hadoop.mapred.Partitioner;
 
@@ -28,8 +27,6 @@ import org.apache.hadoop.mapred.Partitioner;
 public class TupleMapRedPartitioner implements Partitioner<Tuple, Object> {
 
     private TuplePartitioner partitioner;
-    private Configuration conf;
-    private int[] indices;
 
     @Override
     public void configure(JobConf job) {
