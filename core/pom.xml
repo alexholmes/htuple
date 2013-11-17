@@ -22,10 +22,9 @@
   <parent>
     <groupId>org.htuple</groupId>
     <artifactId>htuple</artifactId>
-    <version>0.1.1</version>
+    <version>0.2.0-SNAPSHOT</version>
   </parent>
   <artifactId>htuple-core</artifactId>
-
 
     <properties>
         <jdkLevel>1.6</jdkLevel>
@@ -44,9 +43,7 @@
         <maven.reports.version>2.2</maven.reports.version>
         <maven.site.version>3.0-beta-3</maven.site.version>
         <maven.surefire.version>2.7.2</maven.surefire.version>
-
     </properties>
-
 
     <build>
         <plugins>
